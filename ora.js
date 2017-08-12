@@ -1,3 +1,5 @@
+let zip = require('./zip-fs');
+
 (function (obj) {
     'use strict';
 
@@ -140,7 +142,7 @@
                     xml.async = false;
                     xml.loadXML(text);
                 }
-                
+
                 var img = xml.getElementsByTagName('image')[0];
                 that.width = img.getAttribute('w');
                 that.height = img.getAttribute('h');

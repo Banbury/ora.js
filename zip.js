@@ -40,9 +40,9 @@
 
 	var INFLATE_JS = "inflate.js";
 	var DEFLATE_JS = "deflate.js";
-	
+
 	var TEXT_PLAIN = "text/plain";
-	
+
 	var MESSAGE_EVENT = "message";
 
 	var appendABViewSupported;
@@ -145,7 +145,8 @@
 			var i, data = getDataHelper(length);
 			var start = Math.floor(index / 3) * 4;
 			var end = Math.ceil((index + length) / 3) * 4;
-			var bytes = obj.atob(dataURI.substring(start + dataStart, end + dataStart));
+			var bstr = dataURI.substring(start + dataStart, end + dataStart);
+			var bytes = new Buffer(bstr, 'base64').toString('binary');
 			var delta = index - Math.floor(start / 4) * 3;
 			for (i = delta; i < delta + length; i++)
 				data.array[i - delta] = bytes.charCodeAt(i);
@@ -240,14 +241,14 @@
 			for (; i < array.length; i++)
 				pending += String.fromCharCode(array[i]);
 			if (dataString.length > 2)
-				data += obj.btoa(dataString);
+				data += Buffer(dataString, 'binary').toString('base64');
 			else
 				pending = dataString;
 			callback();
 		}
 
 		function getData(callback) {
-			callback(data + obj.btoa(pending));
+			callback(data + Buffer(pending, 'binary').toString('base64'));
 		}
 
 		that.init = init;

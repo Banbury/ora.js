@@ -1,0 +1,23 @@
+{
+    "name": "ora.js",
+    "version": "1.0.0",
+    "description": "A JavaScript library to open, view, edit and save OpenRaster images.",
+    "keywords": ["ora", "OpenRaster"],
+    "homepage": "https://github.com/Banbury/ora.js",
+    "bugs": "https://github.com/Banbury/ora.js/issues",
+    "license": "MIT",
+    "files": [
+        "blender.js",
+        "deflate.js",
+        "inflate.js",
+        "ora-blending.js",
+        "ora.js",
+        "zip-fs.js",
+        "zip.js"
+    ],
+    "repository" : {
+        "type" : "git",
+         "url" : "https://github.com/Banbury/ora.js.git"
+    },
+    "main": "ora.js"
+}
